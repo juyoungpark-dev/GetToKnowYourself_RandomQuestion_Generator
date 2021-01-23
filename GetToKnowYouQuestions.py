@@ -15,7 +15,6 @@ print("Enter your name: ", end='')
 name = input()
 print("Hello,", name, " <Enter>", end='')
 input()
-print()
 print("We have", len(questions), "questions to get to know you")
 print("Please enter to get a question: <ENTER> ", end='')
 input()
@@ -25,11 +24,8 @@ exitOrNot = ""
 # LOOP GENERATING QUESTIONS:
 while exitOrNot != "0" and len(questions) > 0:
     # Generate random number for the question.
-    # and remove the number and its question from the lists
     randomNum = random.randint(0, len(questions)-1)
-    # print(randomNum)
-    questionNum.remove(randomNum)
-    questions.remove(questions[randomNum])
+       # print(randomNum)
 
     # Show the random questions:
     print()
@@ -42,6 +38,18 @@ while exitOrNot != "0" and len(questions) > 0:
     # store the answers per the question
     QnA[questions[randomNum]] = answer
     # print(QnA)
+
+    # Remove the number and its question from the lists
+    questionNum.remove(randomNum)
+    questions.remove(questions[randomNum])
+ 
+    # FOR TESTING: showing the left questions
+    # print("random question#:",randomNum)
+    # print("The left number of questions are:",len(questions))
+    # i = 0
+    # for x in range(len(questions)-1):
+    #     print(questionNum[i], questions[i])
+    #     i+=1
 
     print("     <Enter> if you want more questions, otherwise '0' to exit: ", end='')
     exitOrNot = input()
@@ -58,9 +66,3 @@ while exitOrNot != "0" and len(questions) > 0:
     
 
 
-# FOR TESTING: showing the left questions
-#print("The left number of questions are:",len(questions))
-# i = 0
-# for x in range(len(questions)):
-#     print(questionNum[i], questions[i])
-#     i+=1
